@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>
+            Mission name
+        </th>
+        {% for lang in languages %}
+        <th>{{ lang }}</th>
+        {% endfor %}
+    </tr>
+    {% for row in data %}
+    <tr>
+        <td>
+            <a href="http://checkio.org/mission/{{ row.slug }}">{{ row.title }}</a>
+        </td>
+        {% for is_lang in row.languages %}
+        <td>
+            {% if is_lang %}
+            V
+            {% else %}
+            X
+            {% endif %}
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
