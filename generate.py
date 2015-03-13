@@ -26,7 +26,8 @@ def collect_language_info(missions):
 
 
 def order_languages(lang_dict):
-    return sorted(lang_dict.keys(), key=lambda k: len(lang_dict[k]), reverse=True)
+    return sorted([k for k in lang_dict.keys() if k in LANG_DICT.keys()],
+                  key=lambda k: len(lang_dict[k]), reverse=True)
 
 
 def generate_table(missions, languages):
