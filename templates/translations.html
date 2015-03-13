@@ -2,36 +2,66 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Checkio Mission Translations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic-ext'
+          rel='stylesheet' type='text/css'>
 </head>
+
+<style>
+    table td:first-child {
+        text-align: left;
+        background-color: #9ad0ec;
+    }
+
+    table td {
+        text-align: center;
+    }
+
+    body {
+        font-family: Roboto, Arial, 'Open Sans', sans-serif;
+        background-color: #dceaf1;
+    }
+    table th {
+        background-color: #9ad0ec;
+    }
+</style>
 <body>
-
-<table>
-    <tr>
-        <th>
-            Mission name
-        </th>
-        {% for lang in languages %}
-        <th>{{ lang }}</th>
+<div class="container-fluid">
+    <div class="page-header">
+        <h1>Checkio mission statistic</h1>
+    </div>
+</div>
+<div class="container-fluid">
+    <h1>Checkio Mission Translations</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Mission name
+            </th>
+            {% for lang in languages %}
+            <th>{{ lang }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>
+                <a href="http://checkio.org/mission/{{ row.slug }}">{{ row.title }}</a>
+            </td>
+            {% for is_lang in row.languages %}
+            <td class="{% if is_lang %}success{% else %}danger{% endif %}">
+                {% if is_lang %}
+                V
+                {% else %}
+                X
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
         {% endfor %}
-    </tr>
-    {% for row in data %}
-    <tr>
-        <td>
-            <a href="http://checkio.org/mission/{{ row.slug }}">{{ row.title }}</a>
-        </td>
-        {% for is_lang in row.languages %}
-        <td>
-            {% if is_lang %}
-            V
-            {% else %}
-            X
-            {% endif %}
-        </td>
-        {% endfor %}
-    </tr>
-    {% endfor %}
-</table>
-
+    </table>
+</div>
 </body>
 </html>

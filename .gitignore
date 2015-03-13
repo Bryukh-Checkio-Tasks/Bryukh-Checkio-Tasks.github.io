@@ -56,4 +56,4 @@ target/
 .DS_Store
 .idea
 
-tasks_info.csv
+*.csv
