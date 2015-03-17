@@ -55,5 +55,7 @@ if __name__ == "__main__":
     mission_data = read_data("tasks_info.csv")
     languages_info = collect_language_info(mission_data)
     table = generate_table(mission_data, order_languages(languages_info))
-    lang_names = [LANG_DICT[code] for code in order_languages(languages_info)]
-    generate_html(table, lang_names)
+    lang_names_count = [[LANG_DICT[code], len(languages_info[code])]
+                        for code in order_languages(languages_info)]
+
+    generate_html(table, lang_names_count)
