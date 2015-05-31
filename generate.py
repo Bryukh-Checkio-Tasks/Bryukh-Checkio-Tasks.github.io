@@ -1,6 +1,7 @@
 import csv
 from collections import namedtuple
 from languages_codes import LANG_DICT
+from stations import STATIONS
 from jinja2 import Template, Environment, FileSystemLoader
 
 
@@ -31,17 +32,18 @@ def order_languages(lang_dict):
 
 
 def generate_table(missions, languages):
-    table = []
+    res = []
     for m in missions:
         row = {
             "title": m.title,
             "slug": m.slug,
+            "station": STATIONS.get(int(m.station), ""),
             "languages": []
         }
         for lang in languages:
             row["languages"].append(lang in m.languages)
-        table.append(row)
-    return table
+        res.append(row)
+    return res
 
 
 def generate_html(data, language_names, template="translations.html", res_file="index.html"):

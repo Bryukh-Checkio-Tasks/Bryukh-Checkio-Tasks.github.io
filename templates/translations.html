@@ -48,6 +48,10 @@
             <th>
                 Mission name
             </th>
+            <th>
+                Station
+            </th>
+
             {% for lang in languages %}
             <th>{{ lang[0] }}<br>{{ lang[1] }}</th>
             {% endfor %}
@@ -59,6 +63,10 @@
             <td>
                 <a href="http://checkio.org/mission/{{ row.slug }}">{{ row.title }}</a>
             </td>
+            <td>
+                {{ row.station }}
+            </td>
+
             {% for is_lang in row.languages %}
             <td class="{% if is_lang %}success{% else %}danger{% endif %}">
                 {% if is_lang %}

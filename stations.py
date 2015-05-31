@@ -1,0 +1,17 @@
+STATIONS = {
+    1: 'Home',
+    2: u'Elementary',
+    4: u'Electronic Station',
+    6: u'Incinerator',
+    7: u'Ice Base',
+    9: u'Scientific Expedition',
+    16: u'Mine',
+    17: u'GitHub',
+    18: u"O'Reilly",
+    20: u'HubSpot',
+    21: u'Dropbox',
+    22: u'Alice In Wonderland',
+    23: u'PyCon TW 2014',
+    24: u'Polygon',
+    25: u'Codeship',
+}
